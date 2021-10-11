@@ -1,4 +1,3 @@
-#include <iostream>
 #include "Product.h"
 using namespace std;
 
@@ -10,19 +9,22 @@ class Cart{
 public:
     //constructor
     Cart();
+    Cart(int inventory_size);
 
     //member functions
     void addProduct(Product new_item);
-    void deleteProduct(Product unwanted_item);
+    double getTotalPrice();
+
+    //public member variables
+    Product* cart_list;
+    int cart_count;
 
     //destructor
     ~Cart();
 
 private:
     //member variables
-    Product* list;
-    int count;
     double total_price;
-    //member function
-    double sumPrice(Product* list);
 };
+#endif
+
