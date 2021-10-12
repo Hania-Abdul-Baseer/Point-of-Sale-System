@@ -1,5 +1,7 @@
+#include <iostream>
 #include "Product.h"
 #include "Cart.h"
+#include "Payment.h"
 #include "Receipt.h"
 using namespace std;
 
