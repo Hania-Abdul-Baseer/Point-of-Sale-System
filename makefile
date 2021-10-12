@@ -1,47 +1,48 @@
-ll: maintest
+all: maintest
 
-maintest: main.o
-	./main.o
+maintest: main
+	./main
 
-main.o: grocerysystem.cpp Receipt.o
-	g++ -Wall grocerysystem.cpp Receipt.o -o main.o
+main: grocerysystem.cpp Receipt.o
+	g++ -Wall grocerysystem.cpp Product.o Cart.o Payment.o Receipt -o main
 
-
-test4: ReceiptTest.o
+test4: ReceiptTest
 	./ReceiptTest
 
-ReceiptTest.o: ReceiptTest.cpp Receipt.o Payment.o
-	g++ -Wall ReceiptTest.cpp Receipt.o Payment.o -o ReceiptTest.o
+ReceiptTest: ReceiptTest.cpp Receipt.o Payment.o
+	g++ -Wall ReceiptTest.cpp Receipt.o Payment.o -o ReceiptTest
 
 Receipt.o: Receipt.cpp Receipt.h Payment.o
-	g++ -Wall Receipt.cpp Payment.o -o Receipt.o
+	g++ -Wall Receipt.cpp Payment.o 
 
-test3: PaymentTest.o
-	./PaymentTest.o
+test3: PaymentTest
+	./PaymentTest
 
-PaymentTest.o: PaymentTest.cpp Payment.o Cart.o
-	g++ -Wall PaymentTest.cpp Payment.o Cart.o -o PaymentTest.o
+PaymentTest: PaymentTest.cpp Payment.o
+	g++ -Wall PaymentTest.cpp Product.o Cart.o Payment.o -o PaymentTest
 
-Payment.o: Payment.cpp Payment.h Cart.o
-	g++ -Wall Payment.cpp Cart.o -o Payment.o
+Payment.o: Payment.h Payment.cpp Cart.o
+	g++ -Wall -c Payment.cpp Cart.o
 
-test2: CartTest.o
-	./CartTest.o
+test2: CartTest
+	./CartTest
 
-CartTest.o: CartTest.cpp Cart.o Product.o
-	g++ -Wall CartTest.cpp Cart.cpp Product.o -o CartTest.o
+CartTest: CartTest.cpp Cart.o Product.o
+	g++ -Wall CartTest.cpp Cart.cpp Product.o -o CartTest
 
-Cart.o: Cart.cpp Cart.h Product.o
-	g++ -Wall Cart.cpp Product.cpp -o Cart.o
+Cart.o: Cart.h Cart.cpp Product.o
+	g++ -Wall -c Cart.cpp Product.o
 
-test1: ProductTest.o
-	./ProductTest.o
+test1: ProductTest
+	./ProductTest
 
-ProductTest.o: ProductTest.cpp Product.o
-	g++ -Wall ProductTest.cpp Product.o -o ProductTest.o
+ProductTest: ProductTest.cpp Product.o
+	g++ -Wall ProductTest.cpp Product.o -o ProductTest
 
-Product.o: Product.cpp Product.h
-	g++ -Wall -c Product.cpp -o Product.o
+Product.o: Product.h Product.cpp
+	g++ -Wall -c Product.cpp  
 
 clean:
 	rm -f *.o all
+
+
