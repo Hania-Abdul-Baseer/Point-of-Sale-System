@@ -1,23 +1,24 @@
 #include "Product.h"
 #include "Cart.h"
+#include "Receipt.h"
 using namespace std;
 
 int main(){
 
 	// FIRST STEP: DISPLAY INVENTORY, SELECT ITEMS AND ADD TO CART
 	//output a welcome for the user
-	cout << "Welcome to Best Buy Grocery Store!" <<endl <<endl;
+	cout << "Welcome to Best Buy Grocery Store!" << endl;
 
 	//created a dynamic array to store the inventory
 	int inventory_size = 18; //size of the array
-	int inventory_index = 0; 
+	int inventory_index = 0;
 	//inventory array of object products
 	Product *inventory = new Product[inventory_size];
 
-	//create a cart object to store customer selection and the total price 
+	//create a cart object to store customer selection and the total price
 	Cart c1(inventory_size);
 
-	//Entered and intialise the products in the shop 
+	//Entered and intialise the products in the shop
 	//add them to a dynamic array called inventory
 	Product watermelons("Watermelons",1,2.00,140,false);
 	inventory[inventory_index++] = watermelons;
@@ -74,9 +75,9 @@ int main(){
 
 	// while loop will continue until the payment option is choosen
 	while(x==0){
-		x = 0; 
+		x = 0;
 		int input = -1; // will store the input value
-		int count = 0; 
+		int count = 0;
 
 
 		cout << endl <<"Select a product from the options above." <<endl;
@@ -97,22 +98,22 @@ int main(){
 		//According to the input one of three options will be done
 
 		for (int i = 0; i < inventory_size; ++i){
-			//If the input is equal to any product in the inventory the following will occur 
+			//If the input is equal to any product in the inventory the following will occur
 			if (input == inventory[i].getProductCode()){
 				// user will be set the quanity required
-				inventory[i].setQuantityRequired(); 
+				inventory[i].setQuantityRequired();
 				// the item will be added to the cart
     			c1.addProduct(inventory[i]);
-    			// this will ensure that the other options are ignored 
+    			// this will ensure that the other options are ignored
     			count = 1;
 			}
 		}
 
-		// if the input is 0 and there is something in the cart 
-		//then the user wants to continue to payment 
+		// if the input is 0 and there is something in the cart
+		//then the user wants to continue to payment
 		if (!(c1.getTotalPrice() == 0 ) && input == 0){
 				x = 1; // will break out of while loop to continue to payment
-				count = 1; 
+				count = 1;
 		}
 		// if the options above werent executed then the input is invalid
 		if(!(count == 1 )){
@@ -124,5 +125,59 @@ int main(){
 	//END OF FIRST STEP
 
 	//start here for payment
-	
+
+
+
+	//LAST STEP: PRINT RECEIPT AND SEND RECEIPT TO USER
+	//set receipt number
+	int receipt_no = 0000;
+	//Prompt for preference of receiving the receipt
+	cout << "Please select how you would like to receive your receipt:\n1.Email\n2.Phone number\n3.None of the above\nEnter a number from the options above and press Enter:" << endl;
+    //store preference number
+    int prefer_num;
+
+    //check for valid input
+    bool valid_input = false;
+    while (valid_input == false){
+
+        //prompt preference number
+        cin >> prefer_num;
+
+    	//check for valid input and create Receipt
+        if (prefer_num == 1){
+            ReceiptByEmail r1(cart_list, inventory_size, total_price, method, receipt_no);
+            r1.getDetails();
+            r1.notify();
+            valid_input = true;
+        }
+        else if (prefer_num == 2){
+            ReceiptByMessage r1(cart_list, inventory_size, total_price, method, receipt_no);
+            r1.getDetails();
+            r1.notify();
+            valid_input = true;
+        }
+        else if (prefer_num == 3){
+            Receipt r1(cart_list, inventory_size, total_price, method, receipt_no);
+            valid_input = true;
+        }
+        else {
+            cout << "Error! Please enter the number that specify your choice." << endl;
+        }
+    }
+
+    //print receipt
+    //receipt heading
+    cout << "\n\n Best Buy Grocery Store\naddress\nwebsite\nphone number\nemail address\nABN\nTAX INVOICE\nReceipt no.: " << r1.getReceiptNo() << "\nDate/Time -- " << r1.getDateTime() << endl;
+    //product info
+    for(int i = 0; i < inventory_size; i++){
+        cout <<
+    }
+
+    //payment info
+
+
+    //extra info
+    cout << "Exchange and refund will not be available.\nThank you for shopping at Good Buy Grocery Store." << endl;
+
+    return 0;
 }
