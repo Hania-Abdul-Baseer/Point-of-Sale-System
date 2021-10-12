@@ -11,8 +11,8 @@ Payment::Payment(){
 }
 
 //calculates and stores the total price that customer needs to pay from the cart array
-double Payment::getTotalPrice(Cart *order_cart){
-	//order_cart->
+double Payment::getPrice(Cart *order_cart){
+    sum_price = order_cart->getTotalPrice();
 	return sum_price;
 }
 
