@@ -43,7 +43,7 @@ Card::Card(){
 //asks and stores all the info related to card payment 
 void Card::setPaymentInfo(){
 	cout<<"You have chosen the card payment method."<<endl;
-	cout<<"Please enter you card details to complete payment"<<endl;
+	cout<<"Please enter your card details to complete payment"<<endl;
 	cout<<"Cardholder Name: ";
 	cin>>card_name;
 	cout<<"\n";
@@ -119,7 +119,7 @@ Cash::~Cash(){
 //deafault LaterPay Constructor 
 LaterPay::LaterPay(){
 	installments_num = 0;
-	price_per_installment = 0;
+	price_per_installment = 0.0;
 	exp_date = " ";
 	card_name = " ";
 	cvv = 0;
