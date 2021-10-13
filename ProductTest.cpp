@@ -6,6 +6,6 @@
 using namespace std;
 
 int main(){
-	cout<<"The Receipt class compiled successfully"<<endl;
+	cout<<"The Product class compiled successfully"<<endl;
 	return 0;
 }
