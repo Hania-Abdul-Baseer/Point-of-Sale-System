@@ -6,6 +6,6 @@
 using namespace std;
 
 int main(){
-	cout<<"This is Cart test"<<endl;
+	cout<<"The Cart class compiled successfully"<<endl;
 	return 0;
 }
