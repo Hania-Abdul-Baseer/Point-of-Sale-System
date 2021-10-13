@@ -1,11 +1,11 @@
-#include <iostream>
 #include "Product.h"
 #include "Cart.h"
-#include "Payment.h"
-#include "Receipt.h"
+//#include "Receipt.h"
 using namespace std;
 
 int main(){
+
+	double totalPrice = 0;
 
 	// FIRST STEP: DISPLAY INVENTORY, SELECT ITEMS AND ADD TO CART
 	//output a welcome for the user
@@ -122,7 +122,29 @@ int main(){
 			// display that the input is invalid and redo while loop
 			cout << endl <<"Error, invalid input. ";
 		}
+		if(input==0){
+			totalPrice = c1.getTotalPrice();
+		cout<<"Your cart total is: $"<<totalPrice<<endl;
 	}
+
+	}
+
+	cout<<"Please choose a payment option from the options above."<<endl;
+	cin>>option;
+
+	if(option==1){
+		//
+	}
+	else if(option == 2){
+		//
+	}
+	else if(option == 3){
+		//
+	}
+	else{
+		cout<<"Invalid input. Please enter a valid option (1, 2, or 3)"<<endl;
+	}
+
 
 	//END OF FIRST STEP
 
@@ -130,56 +152,48 @@ int main(){
 
 
 
-	//LAST STEP: PRINT RECEIPT AND SEND RECEIPT TO USER
-	//set receipt number
-	int receipt_no = 0000;
-	//Prompt for preference of receiving the receipt
-	cout << "Please select how you would like to receive your receipt:\n1.Email\n2.Phone number\n3.None of the above\nEnter a number from the options above and press Enter:" << endl;
-    //store preference number
-    int prefer_num;
+	// //LAST STEP: PRINT RECEIPT AND SEND RECEIPT TO USER
+	// //set receipt number
+	// int receipt_no = 0000;
+	// //Prompt for preference of receiving the receipt
+	// cout << "Please select how you would like to receive your receipt:\n1.Email\n2.Phone number\n3.None of the above\nEnter a number from the options above and press Enter:" << endl;
+ //   //store preference number
+ //   int prefer_num;
 
-    //check for valid input
-    bool valid_input = false;
-    while (valid_input == false){
+ //   //check for valid input
+ //   bool valid_input = false;
+ //   while (valid_input == false){
 
-        //prompt preference number
-        cin >> prefer_num;
+ //       //prompt preference number
+ //       cin >> prefer_num;
 
-    	//check for valid input and create Receipt
-        if (prefer_num == 1){
-            ReceiptByEmail r1(cart_list, inventory_size, total_price, method, receipt_no);
-            r1.getDetails();
-            r1.notify();
-            valid_input = true;
-        }
-        else if (prefer_num == 2){
-            ReceiptByMessage r1(cart_list, inventory_size, total_price, method, receipt_no);
-            r1.getDetails();
-            r1.notify();
-            valid_input = true;
-        }
-        else if (prefer_num == 3){
-            Receipt r1(cart_list, inventory_size, total_price, method, receipt_no);
-            valid_input = true;
-        }
-        else {
-            cout << "Error! Please enter the number that specify your choice." << endl;
-        }
-    }
+ //   	//check for valid input and create Receipt
+ //       if (prefer_num == 1){
+ //           ReceiptByEmail r1(cart_list, inventory_size, total_price, method, receipt_no);
+ //           r1.getDetails();
+ //           r1.notify();
+ //           valid_input = true;
+ //       }
+ //       else if (prefer_num == 2){
+ //           ReceiptByMessage r1(cart_list, inventory_size, total_price, method, receipt_no);
+ //           r1.getDetails();
+ //           r1.notify();
+ //           valid_input = true;
+ //       }
+ //       else if (prefer_num == 3){
+ //           Receipt r1(cart_list, inventory_size, total_price, method, receipt_no);
+ //           valid_input = true;
+ //       }
+ //       else {
+ //           cout << "Error! Please enter the number that specify your choice." << endl;
+ //       }
+ //   }
 
-    //print receipt
-    //receipt heading
-    cout << "\n\n Best Buy Grocery Store\naddress\nwebsite\nphone number\nemail address\nABN\nTAX INVOICE\nReceipt no.: " << r1.getReceiptNo() << "\nDate/Time -- " << r1.getDateTime() << endl;
-    //product info
-    for(int i = 0; i < inventory_size; i++){
-        cout <<
-    }
-
-    //payment info
+ //   //print receipt
+ //   r1.displayReceipt();
 
 
-    //extra info
-    cout << "Exchange and refund will not be available.\nThank you for shopping at Good Buy Grocery Store." << endl;
+
+
 
     return 0;
-}
