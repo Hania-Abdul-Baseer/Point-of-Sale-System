@@ -14,6 +14,7 @@ public:
     //member functions
     void addProduct(Product new_item);
     double getTotalPrice();
+    Product* getCartList();
 
     //public member variables
     Product* cart_list;
@@ -27,4 +28,3 @@ private:
     double total_price;
 };
 #endif
-
