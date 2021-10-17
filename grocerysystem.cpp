@@ -1,5 +1,6 @@
 #include "Product.h"
 #include "Cart.h"
+#include "Payment.h"
 //#include "Receipt.h"
 using namespace std;
 
@@ -18,7 +19,8 @@ int main(){
 	Product *inventory = new Product[inventory_size];
 
 	//create a cart object to store customer selection and the total price
-	Cart c1(inventory_size);
+	Cart *c1 = new Cart(inventory_size);
+	//////////-------------------
 
 	//Entered and intialise the products in the shop
 	//add them to a dynamic array called inventory
@@ -85,7 +87,7 @@ int main(){
 		cout << endl <<"Select a product from the options above." <<endl;
 
 		//when total price isnt zero the payment option will be displayed
-		if (!(c1.getTotalPrice() == 0)){
+		if (!(c1->getTotalPrice() == 0)){
 			cout << "Enter a number from the options above and press Enter." <<endl;
 			cout << "Or if you would like to proceed to payment, input ‘0’ and press enter. ";
 		}
@@ -105,7 +107,7 @@ int main(){
 				// user will be set the quanity required
 				inventory[i].setQuantityRequired();
 				// the item will be added to the cart
-    			c1.addProduct(inventory[i]);
+    			c1->addProduct(inventory[i]);
     			// this will ensure that the other options are ignored
     			count = 1;
 			}
@@ -113,7 +115,7 @@ int main(){
 
 		// if the input is 0 and there is something in the cart
 		//then the user wants to continue to payment
-		if (!(c1.getTotalPrice() == 0 ) && input == 0){
+		if (!(c1->getTotalPrice() == 0 ) && input == 0){
 				x = 1; // will break out of while loop to continue to payment
 				count = 1;
 		}
@@ -123,27 +125,61 @@ int main(){
 			cout << endl <<"Error, invalid input. ";
 		}
 		if(input==0){
-			totalPrice = c1.getTotalPrice();
+			totalPrice = c1->getTotalPrice();
 		cout<<"Your cart total is: $"<<totalPrice<<endl;
 	}
 
 	}
 
-	cout<<"Please choose a payment option from the options above."<<endl;
+	Payment *pay1;
+	double option = 0;
+	cout<<"Your cart total is: $"<<totalPrice<<endl;
+		//cout<<"Please select your preferred payment method: "<<endl;
+		cout<<"1. Cash"<<"\n"<<"2. Card"<<"\n"<<"3. Later Pay"<<endl;
+	cout<<"Please choose your preferred payment method from the options above: ";
 	cin>>option;
+	//cout<<"\n";
 
-	if(option==1){
-		//
+	while(option != 1.0 & option != 2.0 & option != 3.0){
+		cout<<"1. Cash"<<"\n"<<"2. Card"<<"\n"<<"3. Later Pay"<<"\n"<<endl;
+		cout<<"Invalid input. Please enter a valid option (1, 2, or 3): ";
+		cin>>option;
+		//cout<<"\n";
+
+		if(option==1){
+			 //
+		}
+		else if(option == 2){
+			//
+		}
+		else if(option == 3){
+		 //
 	}
-	else if(option == 2){
-		//
+  }
+  
+  if(option==1){
+			 pay1 = new Cash;
+		}
+		else if(option == 2){
+			pay1 = new Card;
+		}
+		else if(option == 3){
+		 pay1 = new LaterPay;
 	}
-	else if(option == 3){
-		//
-	}
-	else{
-		cout<<"Invalid input. Please enter a valid option (1, 2, or 3)"<<endl;
-	}
+	pay1->setPrice(c1);
+	pay1->setPaymentInfo();
+	cout<<"Payment process completed successfully"<<endl;
+	pay1->getPaymentInfo();
+	
+
+ 
+
+ 
+
+	/*else{
+		cout<<"Invalid input. Please enter a valid option (1, 2, or 3): "<<endl;
+		cin>>option;
+	}*/
 
 
 	//END OF FIRST STEP
@@ -197,3 +233,4 @@ int main(){
 
 
     return 0;
+}
