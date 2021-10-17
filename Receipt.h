@@ -1,11 +1,3 @@
-#include <iostream>
-#include <ctime>
-#include <string>
-#include "Cart.h"
-#include "Product.h"
-#include "Payment.h"
-using namespace std;
-
 #ifndef RECEIPT_H
 #define RECEIPT_H
 
@@ -14,25 +6,17 @@ class Receipt{
 public:
     //constructor
     Receipt();
-    Receipt(Product* plist, double ptotal_price, Payment pmethod);
 
     //member functions
-    Product* getCart();
-    double getTotalPrice();
-    Payment getPaymentMethod();
-    char* getDateTime();
-    virtual string getDetails()=0;
-    virtual void notify()=0;
+    void displayReceipt(Product* plist, int pitem_count, double ptotal_price, Payment* pmethod);
+    virtual string getDetails();
+    virtual bool checkValidInput(string input);
+    virtual void notify();
 
     //destructor
     ~Receipt();
 
-private:
-    //member variables
-    Product* cart_list;
-    double total_price;
-    Payment method;
-    string date_time;
+
 };
 
 //subclass ReceiptByEmail
@@ -40,10 +24,10 @@ class ReceiptByEmail: public Receipt{
 public:
     //constructor
     ReceiptByEmail();
-    ReceiptByEmail(Product* plist, double ptotal_price, Payment pmethod);
 
     //member functions
     string getDetails();
+    bool checkValidInput(string email);
     void notify();
 
     //destructor
@@ -60,11 +44,12 @@ class ReceiptByMessage: public Receipt{
 public:
     //constructor
     ReceiptByMessage();
-    ReceiptByMessage(Product* plist, double ptotal_price, Payment pmethod);
 
     //member functions
     string getDetails();
+    bool checkValidInput(string phone_number);
     void notify();
+
 
     //destructor
     ~ReceiptByMessage();
