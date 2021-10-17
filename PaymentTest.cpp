@@ -30,7 +30,6 @@ int main(){
 	Cash ca1 = Cash();
 	ca1.setPaymentInfo();
 	cout<<"\n";
-	ca1.setAmountPaid();
 	cout<<"Expected Change: -"<<ca1.getAmountPaid()<<". "<<"Actual Change: "<<ca1.getChange()<<"\n\n";
 	ca1.getPaymentInfo();
 	cout<<"\n\n";
