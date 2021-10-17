@@ -10,7 +10,7 @@ main: grocerysystem.cpp
 test4: Receipt.h Receipt.cpp Payment.h Payment.cpp Cart.h Cart.cpp Product.h Product.cpp
 	g++ -Wall ReceiptTest.cpp Receipt.cpp Payment.cpp Cart.cpp Product.cpp -o ReceiptTest
 	./ReceiptTest
-
+	diff ReceiptTestOutput.txt ReceiptTestCheck.txt
 
 test3: Payment.h Payment.cpp Cart.h Cart.cpp Product.h Product.cpp
 	g++ -Wall PaymentTest.cpp Payment.cpp Cart.cpp Product.cpp -o PaymentTest
