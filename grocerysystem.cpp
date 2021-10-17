@@ -1,12 +1,11 @@
-#include "Product.h"
 #include "Cart.h"
 #include "Payment.h"
-//#include "Receipt.h"
+#include "Receipt.h"
 using namespace std;
 
 int main(){
 
-	double totalPrice = 0;
+	double total_price = 0;
 
 	// FIRST STEP: DISPLAY INVENTORY, SELECT ITEMS AND ADD TO CART
 	//output a welcome for the user
@@ -125,15 +124,15 @@ int main(){
 			cout << endl <<"Error, invalid input. ";
 		}
 		if(input==0){
-			totalPrice = c1->getTotalPrice();
-		cout<<"Your cart total is: $"<<totalPrice<<endl;
+			total_price = c1->getTotalPrice();
+		cout<<"Your cart total is: $"<<total_price<<endl;
 	}
 
 	}
 
 	Payment *pay1;
 	double option = 0;
-	cout<<"Your cart total is: $"<<totalPrice<<endl;
+	cout<<"Your cart total is: $"<<total_price<<endl;
 		//cout<<"Please select your preferred payment method: "<<endl;
 		cout<<"1. Cash"<<"\n"<<"2. Card"<<"\n"<<"3. Later Pay"<<endl;
 	cout<<"Please choose your preferred payment method from the options above: ";
@@ -156,7 +155,7 @@ int main(){
 		 //
 	}
   }
-  
+
   if(option==1){
 			 pay1 = new Cash;
 		}
@@ -170,11 +169,11 @@ int main(){
 	pay1->setPaymentInfo();
 	cout<<"Payment process completed successfully"<<endl;
 	pay1->getPaymentInfo();
-	
 
- 
 
- 
+
+
+
 
 	/*else{
 		cout<<"Invalid input. Please enter a valid option (1, 2, or 3): "<<endl;
@@ -182,54 +181,65 @@ int main(){
 	}*/
 
 
-	//END OF FIRST STEP
-
-	//start here for payment
 
 
 
-	// //LAST STEP: PRINT RECEIPT AND SEND RECEIPT TO USER
-	// //set receipt number
-	// int receipt_no = 0000;
-	// //Prompt for preference of receiving the receipt
-	// cout << "Please select how you would like to receive your receipt:\n1.Email\n2.Phone number\n3.None of the above\nEnter a number from the options above and press Enter:" << endl;
- //   //store preference number
- //   int prefer_num;
 
- //   //check for valid input
- //   bool valid_input = false;
- //   while (valid_input == false){
+	//LAST STEP: PRINT RECEIPT AND SEND RECEIPT TO USER
+	//Prompt for preference of receiving the receipt
+	cout << "Please select how you would like to receive your receipt:\n1.Email\n2.Phone number\n3.None of the above\nEnter a number from the options above and press Enter:" << endl;
+    //store preference number
+    int prefer_num;
 
- //       //prompt preference number
- //       cin >> prefer_num;
+    //check for valid input
+    bool valid_num = false;
+    while (valid_num == false){
 
- //   	//check for valid input and create Receipt
- //       if (prefer_num == 1){
- //           ReceiptByEmail r1(cart_list, inventory_size, total_price, method, receipt_no);
- //           r1.getDetails();
- //           r1.notify();
- //           valid_input = true;
- //       }
- //       else if (prefer_num == 2){
- //           ReceiptByMessage r1(cart_list, inventory_size, total_price, method, receipt_no);
- //           r1.getDetails();
- //           r1.notify();
- //           valid_input = true;
- //       }
- //       else if (prefer_num == 3){
- //           Receipt r1(cart_list, inventory_size, total_price, method, receipt_no);
- //           valid_input = true;
- //       }
- //       else {
- //           cout << "Error! Please enter the number that specify your choice." << endl;
- //       }
- //   }
+        //prompt preference number
+        cin >> prefer_num;
 
- //   //print receipt
- //   r1.displayReceipt();
-
-
-
+    	//check for valid input and create Receipt
+        if (prefer_num == 1){
+            ReceiptByEmail r1;
+            bool valid_input = false;
+            while (valid_input == false){
+            	if (r1.checkValidInput(r1.getDetails()) == false){
+            		cout << "Invalid email address!" << endl;
+            		valid_input = false;
+            	}
+            	else{
+            		valid_input = true;
+            	}
+            }
+            r1.notify();
+            valid_num = true;
+            r1.displayReceipt(c1->getCartList(), inventory_size, total_price, pay1);
+        }
+        else if (prefer_num == 2){
+            ReceiptByMessage r1;
+            bool valid_input = false;
+            while (valid_input == false){
+            	if (r1.checkValidInput(r1.getDetails()) == false){
+            		cout << "Invalid phone number!" << endl;
+            		valid_input = false;
+            	}
+            	else{
+            		valid_input = true;
+            	}
+            }
+            r1.notify();
+            valid_num = true;
+            r1.displayReceipt(c1->getCartList(), inventory_size, total_price, pay1);
+        }
+        else if (prefer_num == 3){
+            Receipt r1;
+            valid_num = true;
+            r1.displayReceipt(c1->getCartList(), inventory_size, total_price, pay1);
+        }
+        else {
+            cout << "Error! Please enter the number that specify your choice." << endl;
+        }
+    }
 
 
     return 0;
