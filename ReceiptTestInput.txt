@@ -1,0 +1,10 @@
+123@abc.com
+abc.123@abc.com
+abc@abccom.
+a123@abc.com
+A123@abc.com
+abc123
+12345678900
+23
+-146
+0410000000
