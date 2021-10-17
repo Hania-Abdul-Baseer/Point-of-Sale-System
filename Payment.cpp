@@ -10,10 +10,13 @@ Payment::Payment(){
 	user_name = " ";
 }
 
+string Payment::getPaymentMethod(){
+	return method_name;
+}
+
 //calculates and stores the total price that customer needs to pay from the cart array
-double Payment::getPrice(Cart *order_cart){
+void Payment::setPrice(Cart *order_cart){
     sum_price = order_cart->getTotalPrice();
-	return sum_price;
 }
 
 //asks and stores the customer's name
@@ -38,6 +41,7 @@ Card::Card(){
 	exp_date = " ";
 	cvv = 0;
 	card_name = " ";
+	method_name = "Card";
 }
 
 //asks and stores all the info related to card payment 
@@ -72,6 +76,7 @@ void Card::setPaymentInfo(){
 void Card::getPaymentInfo(){
  	cout<<"Paid with: Card ending in ";
  	cout<<card_end_num[0]<<card_end_num[1]<<card_end_num[2]<<card_end_num[3]<<endl;
+ 	cout<<"Amount Paid: $"<<sum_price<<endl;
 }
 
 //default destructor 
@@ -84,6 +89,7 @@ Card::~Card(){
 Cash::Cash(){
 	change = 0;
 	amount_paid = 0;
+	method_name = "Cash";
 }
 
 //asks and stores the amount of cash paid by user 
@@ -99,14 +105,18 @@ double Cash::getAmountPaid(){
 
 void Cash::setPaymentInfo(){
 	cout<<"You have chosen the cash payment option."<<endl;
+	cout<<"Enter the amount of cash paid: ";
+	cin>>amount_paid;
+	cout<<"\n";
 }
 
 void Cash::getPaymentInfo(){
-	cout<<"Paid with: Cash.";
+	cout<<"Paid with: Cash"<<endl;
+	cout<<"Amount Paid: $"<<amount_paid<<" Change received: $"<<getChange()<<endl;
 }
 
 double Cash::getChange(){
-	change = sum_price - amount_paid;
+	change = amount_paid - sum_price;
 	return change;
 }
 
@@ -124,6 +134,7 @@ LaterPay::LaterPay(){
 	card_name = " ";
 	cvv = 0;
 	card_name = " ";
+	method_name = "LaterPay";
 }
 
 //asks and stores all info related to LaterPay payment method 
@@ -159,6 +170,7 @@ void LaterPay::setPaymentInfo(){
 void LaterPay::getPaymentInfo(){
 	cout<<"Paid with: LaterPay and Card ending in ";
  	cout<<card_end_num[0]<<card_end_num[1]<<card_end_num[2]<<card_end_num[3]<<endl;
+ 	cout<<"First Installment Amount Paid: $"<<getPricePerInstallment()<<endl;
 }
 
 int LaterPay::getInstallmentsNum(){
@@ -174,6 +186,8 @@ double LaterPay::getPricePerInstallment(){
 LaterPay::~LaterPay(){
 	cout<<"Destroyed a LaterPay object."<<endl;
 }
+
+
 
 
 
