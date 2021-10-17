@@ -11,9 +11,11 @@ class Payment{
 public: 
 	double sum_price; //stores the total price that customer needs to pay
 	string user_name; 
+	string method_name;
 
 	Payment();
-	double getPrice(Cart *order_cart); //gets the sum price from the card array
+	void setPrice(Cart *order_cart); //gets the sum price from the card array
+	string getPaymentMethod();
 	virtual void setPaymentInfo(); //gets the customer's name 
 	virtual void getPaymentInfo(); //allows the sub classes to define this fucntion
     ~Payment();
@@ -24,7 +26,6 @@ public:
 class Card: public Payment{
 //private:
 	
-
 public:
 	int card_num[16];  //card number is 16 digit long
 	string exp_date;   //card expiration date
@@ -81,6 +82,9 @@ public:
 	~LaterPay();
 };
 #endif
+
+
+
 
 
 
