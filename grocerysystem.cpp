@@ -132,7 +132,7 @@ int main(){
 	
 	//------------PAYMENT PROCESS STARTS---------------
 	
-	Payment *pay1;
+	Payment *pay1 = nullptr;
 	double option = 0;
 		cout<<"1. Cash"<<"\n"<<"2. Card"<<"\n"<<"3. Later Pay"<<endl;
 	cout<<"Please choose your preferred payment method from the options above: ";
@@ -147,10 +147,10 @@ int main(){
   if(option==1){
 			 pay1 = new Cash;
 		}
-		else if(option == 2){
+		if(option == 2){
 			pay1 = new Card;
 		}
-		else if(option == 3){
+		if(option == 3){
 		 pay1 = new LaterPay;
 	}
 	
