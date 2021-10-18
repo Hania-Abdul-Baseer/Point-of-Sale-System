@@ -24,4 +24,4 @@ test2: Cart.h Cart.cpp Product.h Product.cpp
 
 test1: Product.h Product.cpp
 	g++ -Wall ProductTest.cpp Product.cpp -o ProductTest
-	./ProductTest
+	./ProductTest < ProductTestInputs.txt |diff - ProductTestOutput.txt 
