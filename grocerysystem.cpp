@@ -125,7 +125,7 @@ int main(){
 		}
 		if(input==0){
 			total_price = c1->getTotalPrice();
-		cout<<"Your cart total is: $"<<total_price<<endl;
+		cout<<"\nYour cart total is: $"<<total_price<<endl;
 	}
 
 	}
@@ -156,11 +156,11 @@ int main(){
 	
 	pay1->setPrice(c1);
 	pay1->setPaymentInfo();
-	cout<<"\n"<<"Payment process completed successfully"<<endl;
+	cout<<"Payment process completed successfully"<<endl;
 	pay1->getPaymentInfo();
 	
      //----------------END OF PAYMENT PROCESS------------------------	
-
+	
 	//LAST STEP: PRINT RECEIPT AND SEND RECEIPT TO USER
 	//Prompt for preference of receiving the receipt
 	cout << "Please select how you would like to receive your receipt:\n1.Email\n2.Phone number\n3.None of the above\nEnter a number from the options above and press Enter:" << endl;
