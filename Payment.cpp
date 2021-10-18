@@ -55,7 +55,7 @@ void Card::setPaymentInfo(){
 	cin.ignore();
     getline(cin, card_name); 
 	cout<<"\n";
-	
+
 	cout<<"Card Number: ";
 	cin.ignore();
     getline(cin, card_num);
@@ -68,26 +68,30 @@ void Card::setPaymentInfo(){
     }
 	cout<<"\n";
 
-	cout<<"Card Expiration Date: ";
-	cin>>exp_date;
+	cout<<"Card Expiration Date in format (dd/mm/yyyy): ";
+	cin.ignore();
+    getline(cin, exp_date); 
+    cout<<exp_date.length()<<endl; 
+    if(exp_date.length()!=9){
+    	cout<<"Invalid input. Card expiration date must follow the dd/mm/yyyy format."<<endl;
+		cout<<"Please enter your card expiration date again: ";
+	    cin>>exp_date;
+	while(exp_date.length()!=10){
+		cout<<"Invalid input. Card expiration date must follow the dd/mm/yyyy format."<<endl;
+		cout<<"Please enter your card expiration date again: ";
+	    cin>>exp_date;
+	}
+  }
 	cout<<"\n";
 
 	cout<<"Three Digit CVV Code: ";
-	cin.ignore();
-    getline(cin, cvv);  
-    if(cvv.length()!=3){
-    	cout<<"\n"<<"Invalid cvv code. Cvv code must contain 3 digits."<<endl;
-    	cout<<"Please enter your three digit cvv code again: ";
-		cin.ignore();
-	    getline(cin, cvv);
-    	while(cvv.length()!=2){
+	cin>>cvv;
+
+    	while(cvv.length()!=3){
     		cout<<"\n"<<"Invalid cvv code. Cvv code must contain 3 digits."<<endl;
 	    	cout<<"Please enter your three digit cvv code again: ";
-			cin.ignore();
-		    getline(cin, cvv);
-       }
-    }
-    
+			cin>>cvv;
+       } 
 	cout<<"\n";
 
 //storing the last four ending digits of the card number for displaying when 
@@ -178,39 +182,43 @@ void LaterPay::setPaymentInfo(){
 	cout<<"Cardholder Name: ";
 	cin.ignore();
     getline(cin, card_name);
-   
-	cout<<"\n";
+   	cout<<"\n";
+
 	cout<<"Card Number: ";
 	cin.ignore();
     getline(cin, card_num);
-    
     while(card_num.length()!=15){
     	cout<<"\n"<<"Invalid card number. Card number must contain 16 digits."<<endl;
     	cout<<"Please enter the Card Number again: ";
 		cin.ignore();
 	    getline(cin, card_num);
     }
-
 	cout<<"\n";
-	cout<<"Card Expiration Date: ";
-	cin>>exp_date;
+
+	cout<<"Card Expiration Date in format (dd/mm/yyyy): ";
+	cin.ignore();
+    getline(cin, exp_date); 
+    cout<<exp_date.length()<<endl; 
+    if(exp_date.length()!=9){
+    	cout<<"Invalid input. Card expiration date must follow the dd/mm/yyyy format."<<endl;
+		cout<<"Please enter your card expiration date again: ";
+	    cin>>exp_date;
+	while(exp_date.length()!=10){
+		cout<<"Invalid input. Card expiration date must follow the dd/mm/yyyy format."<<endl;
+		cout<<"Please enter your card expiration date again: ";
+	    cin>>exp_date;
+	}
+  }
 	cout<<"\n";
 
 	cout<<"Three Digit CVV Code: ";
-	cin.ignore();
-    getline(cin, cvv);  
-    if(cvv.length()!=3){
-    	cout<<"\n"<<"Invalid cvv code. Cvv code must contain 3 digits."<<endl;
-    	cout<<"Please enter your three digit cvv code again: ";
-		cin.ignore();
-	    getline(cin, cvv);
-    	while(cvv.length()!=2){
+	cin>>cvv;
+
+    	while(cvv.length()!=3){
     		cout<<"\n"<<"Invalid cvv code. Cvv code must contain 3 digits."<<endl;
 	    	cout<<"Please enter your three digit cvv code again: ";
-			cin.ignore();
-		    getline(cin, cvv);
-       }
-    }  
+			cin>>cvv;
+       } 
 	cout<<"\n";
 
 	cout<<"Enter the number of installments you wish to pay in (2, 3, or 4): ";
@@ -252,6 +260,7 @@ double LaterPay::getPricePerInstallment(){
 //default destructor 
 LaterPay::~LaterPay(){
 }
+
 
 
 
