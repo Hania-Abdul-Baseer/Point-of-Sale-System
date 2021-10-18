@@ -1,3 +1,9 @@
+#include <ctime>
+#include "Product.h"
+#include "Cart.h"
+#include "Payment.h"
+using namespace std;
+
 #ifndef RECEIPT_H
 #define RECEIPT_H
 
