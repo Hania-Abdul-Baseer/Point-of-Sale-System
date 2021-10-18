@@ -38,13 +38,21 @@ string Product::getProductName(){
 	return product_name;
 }
 void Product::setProductName(string name){
+	if (name == "")
+	{
+		return;
+	}
 	product_name = name;
 }
 
 //set and get product price
 void Product::setProductPrice(double price){
+	if (price < 0)
+	{
+		return;
+	}
 	// price can only be a maximum of two decimal points
-	product_price = (round(price*100))/100;	
+	product_price = ((round(price*100))/100);	
 }
 double Product::getProductPrice(){
 	return((round((quantity_required * product_price)*100))/100);
@@ -58,14 +66,24 @@ int Product::getProductCode(){
 	return product_code;
 }
 void Product::setProductCode(int code){
+	if (code < 0)
+	{
+		return;
+	}
+
 	product_code = code;
 }
 
 // product stock getter and setter
+// stock is in kg for 
 double Product::getProductStock(){
 	return in_stock_quantity;
 }
 void Product::setProductStock(double stock){
+	if (stock < 0)
+	{
+		return;
+	}
 	if (product_by_quantity == true){
 		in_stock_quantity = floor(stock);
 	}
