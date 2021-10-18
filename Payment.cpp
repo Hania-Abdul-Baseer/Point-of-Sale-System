@@ -71,7 +71,6 @@ void Card::setPaymentInfo(){
 	cout<<"Card Expiration Date in format (dd/mm/yyyy): ";
 	cin.ignore();
     getline(cin, exp_date); 
-    cout<<exp_date.length()<<endl; 
     if(exp_date.length()!=9){
     	cout<<"Invalid input. Card expiration date must follow the dd/mm/yyyy format."<<endl;
 		cout<<"Please enter your card expiration date again: ";
@@ -146,6 +145,7 @@ void Cash::setPaymentInfo(){
 		cin>>amount_paid;
 		cout<<"\n";
 	}
+	cout<<"\n";
 }
 
 void Cash::getPaymentInfo(){
@@ -199,7 +199,6 @@ void LaterPay::setPaymentInfo(){
 	cout<<"Card Expiration Date in format (dd/mm/yyyy): ";
 	cin.ignore();
     getline(cin, exp_date); 
-    cout<<exp_date.length()<<endl; 
     if(exp_date.length()!=9){
     	cout<<"Invalid input. Card expiration date must follow the dd/mm/yyyy format."<<endl;
 		cout<<"Please enter your card expiration date again: ";
@@ -262,7 +261,6 @@ double LaterPay::getPricePerInstallment(){
 //default destructor 
 LaterPay::~LaterPay(){
 }
-
 
 
 
