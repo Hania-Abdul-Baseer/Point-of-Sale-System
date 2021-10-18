@@ -1,0 +1,148 @@
+------------------------------Card unit test-----------------------------
+
+You have chosen the card payment method.
+Please enter your card details to complete payment
+Cardholder Name: 
+Card Number: 
+Card Expiration Date in format (dd/mm/yyyy): 
+Three Digit CVV Code: 
+Paid with: Card ending in 3729
+
+
+You have chosen the card payment method.
+Please enter your card details to complete payment
+Cardholder Name: 
+Card Number: 
+Invalid card number. Card number must contain 16 digits.
+Please enter the Card Number again: 
+Invalid card number. Card number must contain 16 digits.
+Please enter the Card Number again: 
+Invalid card number. Card number must contain 16 digits.
+Please enter the Card Number again: 
+Invalid card number. Card number must contain 16 digits.
+Please enter the Card Number again: 
+Card Expiration Date in format (dd/mm/yyyy): Invalid input. Card expiration date must follow the dd/mm/yyyy format.
+Please enter your card expiration date again: Invalid input. Card expiration date must follow the dd/mm/yyyy format.
+Please enter your card expiration date again: Invalid input. Card expiration date must follow the dd/mm/yyyy format.
+Please enter your card expiration date again: Invalid input. Card expiration date must follow the dd/mm/yyyy format.
+Please enter your card expiration date again: 
+Three Digit CVV Code: 
+Invalid cvv code. Cvv code must contain 3 digits.
+Please enter your three digit cvv code again: 
+Invalid cvv code. Cvv code must contain 3 digits.
+Please enter your three digit cvv code again: 
+Invalid cvv code. Cvv code must contain 3 digits.
+Please enter your three digit cvv code again: 
+Invalid cvv code. Cvv code must contain 3 digits.
+Please enter your three digit cvv code again: 
+Invalid cvv code. Cvv code must contain 3 digits.
+Please enter your three digit cvv code again: 
+Paid with: Card ending in 3445
+
+-------------------------------Cash unit test------------------------------
+
+You have chosen the cash payment option.
+Enter the amount of cash paid: 
+Paid with: Cash
+Amount Paid: $31.4 Change received: $0
+
+
+You have chosen the cash payment option.
+Enter the amount of cash paid: 
+Sorry the amount paid is insufficient
+Your cart total to be paid is: $143.43
+Enter the amount of cash paid: 
+
+Sorry the amount paid is insufficient
+Your cart total to be paid is: $143.43
+Enter the amount of cash paid: 
+
+Sorry the amount paid is insufficient
+Your cart total to be paid is: $143.43
+Enter the amount of cash paid: 
+
+Sorry the amount paid is insufficient
+Your cart total to be paid is: $143.43
+Enter the amount of cash paid: 
+
+Sorry the amount paid is insufficient
+Your cart total to be paid is: $143.43
+Enter the amount of cash paid: 
+
+Paid with: Cash
+Amount Paid: $150 Change received: $6.57
+
+----------------------------LaterPay unit test-----------------------------
+
+You have chosen the LaterPay payment option.
+Please enter your card details and installment options to complete payment.
+Cardholder Name: 
+Card Number: 
+Card Expiration Date in format (dd/mm/yyyy): 
+Three Digit CVV Code: 
+Enter the number of installments you wish to pay in (2, 3, or 4): 
+Paid with: LaterPay and Card ending in 3456
+First Installment of 2 installments paid with price per installment of $162.825
+
+
+You have chosen the LaterPay payment option.
+Please enter your card details and installment options to complete payment.
+Cardholder Name: 
+Card Number: 
+Card Expiration Date in format (dd/mm/yyyy): 
+Three Digit CVV Code: 
+Enter the number of installments you wish to pay in (2, 3, or 4): 
+Paid with: LaterPay and Card ending in 3456
+First Installment of 3 installments paid with price per installment of $108.55
+
+
+You have chosen the LaterPay payment option.
+Please enter your card details and installment options to complete payment.
+Cardholder Name: 
+Card Number: 
+Card Expiration Date in format (dd/mm/yyyy): 
+Three Digit CVV Code: 
+Enter the number of installments you wish to pay in (2, 3, or 4): 
+Paid with: LaterPay and Card ending in 9928
+First Installment of 4 installments paid with price per installment of $81.4125
+
+
+You have chosen the LaterPay payment option.
+Please enter your card details and installment options to complete payment.
+Cardholder Name: 
+Card Number: 
+Invalid card number. Card number must contain 16 digits.
+Please enter the Card Number again: 
+Invalid card number. Card number must contain 16 digits.
+Please enter the Card Number again: 
+Invalid card number. Card number must contain 16 digits.
+Please enter the Card Number again: 
+Invalid card number. Card number must contain 16 digits.
+Please enter the Card Number again: 
+Invalid card number. Card number must contain 16 digits.
+Please enter the Card Number again: 
+Card Expiration Date in format (dd/mm/yyyy): Invalid input. Card expiration date must follow the dd/mm/yyyy format.
+Please enter your card expiration date again: Invalid input. Card expiration date must follow the dd/mm/yyyy format.
+Please enter your card expiration date again: Invalid input. Card expiration date must follow the dd/mm/yyyy format.
+Please enter your card expiration date again: 
+Three Digit CVV Code: 
+Invalid cvv code. Cvv code must contain 3 digits.
+Please enter your three digit cvv code again: 
+Invalid cvv code. Cvv code must contain 3 digits.
+Please enter your three digit cvv code again: 
+Invalid cvv code. Cvv code must contain 3 digits.
+Please enter your three digit cvv code again: 
+Invalid cvv code. Cvv code must contain 3 digits.
+Please enter your three digit cvv code again: 
+Enter the number of installments you wish to pay in (2, 3, or 4): 
+
+Invalid input. You can only pay in installments of 2, 3 or 4.
+Enter the number of installments you wish to pay in: 
+Invalid input. You can only pay in installments of 2, 3 or 4.
+Enter the number of installments you wish to pay in: 
+Invalid input. You can only pay in installments of 2, 3 or 4.
+Enter the number of installments you wish to pay in: 
+Invalid input. You can only pay in installments of 2, 3 or 4.
+Enter the number of installments you wish to pay in: Paid with: LaterPay and Card ending in 1628
+First Installment of 3 installments paid with price per installment of $108.55
+
