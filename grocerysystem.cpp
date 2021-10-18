@@ -128,12 +128,12 @@ int main(){
 		cout<<"Your cart total is: $"<<total_price<<endl;
 	}
 
-	}
+		}
+	
+	//------------PAYMENT PROCESS STARTS---------------
 
 	Payment *pay1;
 	double option = 0;
-	cout<<"Your cart total is: $"<<total_price<<endl;
-		//cout<<"Please select your preferred payment method: "<<endl;
 		cout<<"1. Cash"<<"\n"<<"2. Card"<<"\n"<<"3. Later Pay"<<endl;
 	cout<<"Please choose your preferred payment method from the options above: ";
 	cin>>option;
@@ -155,7 +155,7 @@ int main(){
 		 //
 	}
   }
-
+  
   if(option==1){
 			 pay1 = new Cash;
 		}
@@ -167,10 +167,8 @@ int main(){
 	}
 	pay1->setPrice(c1);
 	pay1->setPaymentInfo();
-	cout<<"Payment process completed successfully"<<endl;
+	cout<<"\n"<<"Payment process completed successfully"<<endl;
 	pay1->getPaymentInfo();
-
-
 
 
 
