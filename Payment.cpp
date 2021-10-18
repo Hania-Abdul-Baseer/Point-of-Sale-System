@@ -49,7 +49,7 @@ Card::Card(){
 //asks and stores all the info related to card payment 
 void Card::setPaymentInfo(){
 
-	cout<<"You have chosen the card payment method."<<endl;
+	cout<<"\nYou have chosen the card payment method."<<endl;
 	cout<<"Please enter your card details to complete payment"<<endl;
 	cout<<"Cardholder Name: ";
 	cin.ignore();
@@ -131,7 +131,7 @@ double Cash::getAmountPaid(){
 }
 
 void Cash::setPaymentInfo(){
-	cout<<"You have chosen the cash payment option."<<endl;
+	cout<<"\nYou have chosen the cash payment option."<<endl;
 	cout<<"Enter the amount of cash paid: ";
 	cin>>amount_paid;
 
@@ -173,7 +173,7 @@ LaterPay::LaterPay(){
 //asks and stores all info related to LaterPay payment method 
 void LaterPay::setPaymentInfo(){
 	double installments_num_double;
-	cout<<"You have chosen the LaterPay payment option."<<endl;
+	cout<<"\nYou have chosen the LaterPay payment option."<<endl;
 	cout<<"Please enter your card details and installment options to complete payment."<<endl;
 	cout<<"Cardholder Name: ";
 	cin.ignore();
