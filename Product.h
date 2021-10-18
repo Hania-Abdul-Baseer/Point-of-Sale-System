@@ -16,8 +16,8 @@ public:
 
 	//set price and get price by entering the required quantity 
 	double getProductPrice();
-	double getDefultProductPrice();
-	void setProductPrice(double price);
+	double getDefultProductPrice(); // for quantity 1 or 1kg
+	void setProductPrice(double price); // for quantity required
 
 	// get and set product code
 	int getProductCode();
@@ -32,7 +32,7 @@ public:
 	void setQuantityRequired();
 
 
-	//is the iteam by quantity? 
+	//is the item by quantity? 
 	//getter and setter for this boolean
 	bool getByQuantity();
 	void setByQuanity(bool byQuantity);
