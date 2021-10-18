@@ -34,7 +34,6 @@ void Payment::getPaymentInfo(){
 
 //default destructor 
 Payment::~Payment(){
-	cout<<"Destroyed a Payment object"<<endl;
 }
 
 //Subclass of Payment: Card
@@ -110,7 +109,6 @@ void Card::getPaymentInfo(){
 
 //default destructor 
 Card::~Card(){
- cout<<"Destroyed a Card object."<<endl;
 }
 
 //Subclass of Payment: Cash
@@ -158,7 +156,6 @@ double Cash::getChange(){
 
 //default destructor 
 Cash::~Cash(){
- cout<<"Destroyed a Cash object."<<endl;
 }
 
 //Subclass of Payment: LaterPay
@@ -254,7 +251,6 @@ double LaterPay::getPricePerInstallment(){
 
 //default destructor 
 LaterPay::~LaterPay(){
-	cout<<"Destroyed a LaterPay object."<<endl;
 }
 
 
