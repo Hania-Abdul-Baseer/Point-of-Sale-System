@@ -108,7 +108,7 @@ void Card::setPaymentInfo(){
 void Card::getPaymentInfo(){
  	cout<<"Paid with: Card ending in ";
  	cout<<card_end_num[0]<<card_end_num[1]<<card_end_num[2]<<card_end_num[3]<<endl;
- 	cout<<"Amount Paid: $"<<sum_price<<endl;
+ 	cout<<"\n";
 }
 
 //default destructor 
@@ -151,6 +151,7 @@ void Cash::setPaymentInfo(){
 void Cash::getPaymentInfo(){
 	cout<<"Paid with: Cash"<<endl;
 	cout<<"Amount Paid: $"<<amount_paid<<" Change received: $"<<getChange()<<endl;
+	cout<<"\n";
 }
 
 double Cash::getChange(){
@@ -246,6 +247,7 @@ void LaterPay::getPaymentInfo(){
  	cout<<card_end_num[0]<<card_end_num[1]<<card_end_num[2]<<card_end_num[3]<<endl;
  	cout<<"First Installment of "<<installments_num<<" installments paid";
  	cout<<" with price per installment of $"<<getPricePerInstallment()<<endl;
+	cout<<"\n";
 }
 
 int LaterPay::getInstallmentsNum(){
