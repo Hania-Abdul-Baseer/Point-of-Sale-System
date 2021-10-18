@@ -14,7 +14,7 @@ test4: Receipt.h Receipt.cpp Payment.h Payment.cpp Cart.h Cart.cpp Product.h Pro
 
 test3: Payment.h Payment.cpp Cart.h Cart.cpp Product.h Product.cpp
 	g++ -Wall PaymentTest.cpp Payment.cpp Cart.cpp Product.cpp -o PaymentTest
-	./PaymentTest
+	./PaymentTest < PaymentTestInput.txt | diff - PaymentTestCheck.txt
 
 
 test2: Cart.h Cart.cpp Product.h Product.cpp
