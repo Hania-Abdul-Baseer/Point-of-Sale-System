@@ -128,32 +128,20 @@ int main(){
 		cout<<"Your cart total is: $"<<total_price<<endl;
 	}
 
-		}
+	}
 	
 	//------------PAYMENT PROCESS STARTS---------------
-
+	
 	Payment *pay1;
 	double option = 0;
 		cout<<"1. Cash"<<"\n"<<"2. Card"<<"\n"<<"3. Later Pay"<<endl;
 	cout<<"Please choose your preferred payment method from the options above: ";
 	cin>>option;
-	//cout<<"\n";
 
 	while(option != 1.0 & option != 2.0 & option != 3.0){
 		cout<<"1. Cash"<<"\n"<<"2. Card"<<"\n"<<"3. Later Pay"<<"\n"<<endl;
 		cout<<"Invalid input. Please enter a valid option (1, 2, or 3): ";
 		cin>>option;
-		//cout<<"\n";
-
-		if(option==1){
-			 //
-		}
-		else if(option == 2){
-			//
-		}
-		else if(option == 3){
-		 //
-	}
   }
   
   if(option==1){
@@ -165,23 +153,13 @@ int main(){
 		else if(option == 3){
 		 pay1 = new LaterPay;
 	}
+	
 	pay1->setPrice(c1);
 	pay1->setPaymentInfo();
 	cout<<"\n"<<"Payment process completed successfully"<<endl;
 	pay1->getPaymentInfo();
-
-
-
-
-	/*else{
-		cout<<"Invalid input. Please enter a valid option (1, 2, or 3): "<<endl;
-		cin>>option;
-	}*/
-
-
-
-
-
+	
+     //----------------END OF PAYMENT PROCESS------------------------	
 
 	//LAST STEP: PRINT RECEIPT AND SEND RECEIPT TO USER
 	//Prompt for preference of receiving the receipt
