@@ -9,6 +9,7 @@ int main(){
     int count = 5;
     double total_price = 10.05;
     Payment* method = new Card;
+    method->setPaymentInfo();
 
     //initialise two Receipt variables
     //Receipt R1;
@@ -38,12 +39,6 @@ int main(){
     //notification
     R1.notify();
     R2.notify();
-
-
-    //destructor
-    //R1.~Receipt();
-    R1.~Receipt();
-    R2.~Receipt();
 
 
     return 0;
