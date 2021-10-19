@@ -66,6 +66,7 @@ class LaterPay: public Payment{
 public:
 	string card_num;  //card number is 16 digits long
 	int installments_num;
+	string installments_num_str;
 	double price_per_installment;
 	string exp_date;   // card expiration date
 	string cvv;
@@ -82,6 +83,8 @@ public:
 	~LaterPay();
 };
 #endif
+
+
 
 
 
