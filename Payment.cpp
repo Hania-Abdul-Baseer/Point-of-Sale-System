@@ -18,14 +18,14 @@ bool isNumber2(string str){
 }
 
 bool isDouble(string str){
-
 	int len2 = str.length();
-	for(int i=0;i<len2;i++){
-		if(isdigit((str[i]) == 0) && (str[i] != '.')){
-			return false;
+
+		for(int i=0;i<len2;i++){
+			if((isdigit(str[i]) == 0) && (str[i] != '.')){
+				return false;
+			}
 		}
-	}
-	return true;
+		return true;
 }
 
 //deafult payment constructor
