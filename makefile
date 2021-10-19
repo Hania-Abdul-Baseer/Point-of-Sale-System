@@ -27,4 +27,4 @@ test1: Product.h Product.cpp
 	./ProductTest < ProductTestInputs.txt |diff - ProductTestOutput.txt 
 	
 clean: 
-	rm -f *.o all
+	rm -f *.o main all
