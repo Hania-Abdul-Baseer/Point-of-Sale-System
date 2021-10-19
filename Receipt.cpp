@@ -36,7 +36,7 @@ void Receipt::displayReceipt(Product* plist, int pitem_count, double ptotal_pric
     pmethod->getPaymentInfo();
 
     //extra info
-    cout << "\nExchange and refund will not be available.\nThank you for shopping at Good Buy Grocery Store." << endl;
+    cout << "\nExchange and refund will not be available.\nThank you for shopping at Best Buy Grocery Store." << endl;
 
 }
 
@@ -149,5 +149,3 @@ bool ReceiptByMessage::checkValidInput(string phone_number){
 ReceiptByMessage::~ReceiptByMessage(){
 
 }
-
-
