@@ -3,6 +3,16 @@
 #include "Receipt.h"
 using namespace std;
 
+bool isNumber(string str){
+
+		for(int i=0;i<str.length();i++){
+			if(isdigit(str[i]) == 0){
+				return false;
+			}
+		}
+		return true;
+}
+
 int main(){
 
 	double total_price = 0;
@@ -133,24 +143,28 @@ int main(){
 	//------------PAYMENT PROCESS STARTS---------------
 	
 	Payment *pay1 = nullptr;
-	double option = 0;
-		cout<<"1. Cash"<<"\n"<<"2. Card"<<"\n"<<"3. Later Pay"<<endl;
+
+    string option = " ";
+
+	cout<<"1. Cash"<<"\n"<<"2. Card"<<"\n"<<"3. Later Pay"<<endl;
 	cout<<"Please choose your preferred payment method from the options above: ";
 	cin>>option;
 
-	while(option != 1.0 & option != 2.0 & option != 3.0){
+
+
+	while((isNumber(option) == false) || ((option!= "1") & (option != "2") & (option != "3"))){
 		cout<<"1. Cash"<<"\n"<<"2. Card"<<"\n"<<"3. Later Pay"<<"\n"<<endl;
 		cout<<"Invalid input. Please enter a valid option (1, 2, or 3): ";
 		cin>>option;
-  }
-  
-  if(option==1){
+	}
+
+  if(option=="1"){
 			 pay1 = new Cash;
 		}
-		if(option == 2){
+		if(option == "2"){
 			pay1 = new Card;
 		}
-		if(option == 3){
+		if(option == "3"){
 		 pay1 = new LaterPay;
 	}
 	
