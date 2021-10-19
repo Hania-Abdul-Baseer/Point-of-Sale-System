@@ -1,0 +1,99 @@
+Welcome to Best Buy Grocery Store!
+1.Watermelons $2/kg
+2.Mangoes $3 each
+3.Apples (Royal Gala) $2/kg
+4.Bananas $3/kg
+5.Strawberries 250g punnet $1.5 each
+6.Pears $2/kg
+7.Oranges 3kg bags $5.5 each
+8.Pineapples (whole) $3 each
+9.RockMelons (whole) $3 each
+10.Salad Mix 200g bag $2 each
+11.Cucumber 250g bag $2.5 each
+12.Carrots 1kg bag $2 each
+13.Tomatoes $5/kg
+14.Capcicums $5/kg
+15.Red Onions $5/kg
+16.Potatoes 1kg bag $3 each
+17.Mushrooms $7/kg
+18.Ginger $15/kg
+
+Select a product from the options above.
+Enter a number from the options above and press Enter.
+Error, invalid input.
+Select a product from the options above.
+Enter a number from the options above and press Enter.
+Error, invalid input.
+Select a product from the options above.
+Enter a number from the options above and press Enter.Enter the quantity of Mangoes you would like to purchase:
+Error, invalid input, please enter the correct quantity.
+Enter the quantity of Mangoes you would like to purchase:
+
+Select a product from the options above.
+Enter a number from the options above and press Enter.
+Or if you would like to proceed to payment, input ‘0’ and press enter. Enter the quantity of Pineapples (whole) you would like to purchase:
+
+Select a product from the options above.
+Enter a number from the options above and press Enter.
+Or if you would like to proceed to payment, input ‘0’ and press enter. Enter the quantity of Mangoes you would like to purchase:
+
+Select a product from the options above.
+Enter a number from the options above and press Enter.
+Or if you would like to proceed to payment, input ‘0’ and press enter. Enter the quantity of Salad Mix 200g bag you would like to purchase:
+
+Select a product from the options above.
+Enter a number from the options above and press Enter.
+Or if you would like to proceed to payment, input ‘0’ and press enter. Enter the quantity of Potatoes 1kg bag you would like to purchase:
+
+Select a product from the options above.
+Enter a number from the options above and press Enter.
+Or if you would like to proceed to payment, input ‘0’ and press enter.
+Your cart total is: $42
+1. Cash
+2. Card
+3. Later Pay
+Please choose your preferred payment method from the options above:
+You have chosen the card payment method.
+Please enter your card details to complete payment
+Cardholder Name:
+Card Number:
+Invalid card number. Card number must contain 16 digits.
+Please enter the Card Number again:
+Card Expiration Date in format (dd/mm/yyyy):
+Three Digit CVV Code:
+Payment process completed successfully
+Paid with: Card ending in 1111
+
+Please select how you would like to receive your receipt:
+1.Email
+2.Phone number
+3.None of the above
+Enter a number from the options above and press Enter:
+Error! Please enter the number that specify your choice.
+Enter your phone number below:
+Invalid phone number!
+Enter your phone number below:
+The receipt has been successfully sent to 0410000000
+
+
+			Best Buy Grocery Store
+				 73 Rundle Mall
+			   Adelaide SA 5000
+			www.bestbuygrocery.com
+			Telephone: 08 8000 8000
+			 ABN: 12 345 678 900
+			      TAX INVOICE
+
+Date/Time -- Tue Oct 19 14:40:08 2021
+
+1. Mangoes					21
+2. Pineapples (whole)					6
+3. Salad Mix 200g bag					6
+4. Potatoes 1kg bag					9
+TOTAL AUD	     42
+
+Paid with: Card ending in 1111
+
+
+Exchange and refund will not be available.
+Thank you for shopping at Best Buy Grocery Store.
