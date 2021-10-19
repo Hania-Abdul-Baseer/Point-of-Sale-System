@@ -1,0 +1,23 @@
+Enter the quantity of Apples (Royal Gala) you would like to purchase: 
+1
+Apples (Royal Gala)	 Quanity Required is:5
+Enter the quantity of Apples (Royal Gala) you would like to purchase: 
+Enter the quantity of Apples (Royal Gala) you would like to purchase: 
+2
+Apples (Royal Gala)	 Quanity Required is:12
+Enter the quantity of Apples (Royal Gala) you would like to purchase: 
+Enter the quantity of Strawberries 250g punnet you would like to purchase: 
+Enter the quantity of Strawberries 250g punnet you would like to purchase: 
+3
+Apples (Royal Gala)	 Quanity Required is:2.5
+Strawberries 250g punnet	 Quanity Required is:3
+Enter the quantity of Apples (Royal Gala) you would like to purchase: 
+
+4
+$10
+Enter the quantity of Apples (Royal Gala) you would like to purchase: 
+Enter the quantity of Strawberries 250g punnet you would like to purchase: 
+Enter the quantity of Strawberries 250g punnet you would like to purchase: 
+5
+$8.5
+$8.5
