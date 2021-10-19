@@ -5,12 +5,13 @@ using namespace std;
 
 bool isNumber(string str){
 
-		for(int i=0;i<str.length();i++){
-			if(isdigit(str[i]) == 0){
-				return false;
-			}
+	int len = str.length();
+	for(int i=0;i<len;i++){
+		if(isdigit(str[i]) == 0){
+			return false;
 		}
-		return true;
+	}
+	return true;
 }
 
 int main(){
@@ -139,9 +140,9 @@ int main(){
 	}
 
 	}
-	
+
 	//------------PAYMENT PROCESS STARTS---------------
-	
+
 	Payment *pay1 = nullptr;
 
     string option = " ";
@@ -167,19 +168,19 @@ int main(){
 		if(option == "3"){
 		 pay1 = new LaterPay;
 	}
-	
+
 	pay1->setPrice(c1);
 	pay1->setPaymentInfo();
 	cout<<"Payment process completed successfully"<<endl;
 	pay1->getPaymentInfo();
-	
-     //----------------END OF PAYMENT PROCESS------------------------	
-	
+
+     //----------------END OF PAYMENT PROCESS------------------------
+
 	//LAST STEP: PRINT RECEIPT AND SEND RECEIPT TO USER
 	//Prompt for preference of receiving the receipt
 	cout << "Please select how you would like to receive your receipt:\n1.Email\n2.Phone number\n3.None of the above\nEnter a number from the options above and press Enter:" << endl;
     //store preference number
-    int prefer_num;
+    string prefer_num;
 
     //check for valid input
     bool valid_num = false;
@@ -189,7 +190,7 @@ int main(){
         cin >> prefer_num;
 
     	//check for valid input and create Receipt
-        if (prefer_num == 1){
+        if (prefer_num == "1"){
             ReceiptByEmail r1;
             bool valid_input = false;
             while (valid_input == false){
@@ -205,7 +206,7 @@ int main(){
             valid_num = true;
             r1.displayReceipt(c1->getCartList(), inventory_size, total_price, pay1);
         }
-        else if (prefer_num == 2){
+        else if (prefer_num == "2"){
             ReceiptByMessage r1;
             bool valid_input = false;
             while (valid_input == false){
@@ -221,7 +222,7 @@ int main(){
             valid_num = true;
             r1.displayReceipt(c1->getCartList(), inventory_size, total_price, pay1);
         }
-        else if (prefer_num == 3){
+        else if (prefer_num == "3"){
             Receipt r1;
             valid_num = true;
             r1.displayReceipt(c1->getCartList(), inventory_size, total_price, pay1);
