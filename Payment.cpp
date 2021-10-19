@@ -8,25 +8,27 @@ using namespace std;
 
 bool isNumber2(string str){
 
-		for(int i=0;i<str.length();i++){
-			if(isdigit(str[i]) ==0){
-				return false;
-			}
+	int len1 = str.length();
+	for(int i=0;i<len1;i++){
+		if(isdigit(str[i]) ==0){
+			return false;
 		}
-		return true;
+	}
+	return true;
 }
 
 bool isDouble(string str){
 
-		for(int i=0;i<str.length();i++){
-			if(isdigit(str[i]) == 0 & str[i] != '.'){
-				return false;
-			}
+	int len2 = str.length();
+	for(int i=0;i<len2;i++){
+		if(isdigit((str[i]) == 0) && (str[i] != '.')){
+			return false;
 		}
-		return true;
+	}
+	return true;
 }
 
-//deafult payment constructor 
+//deafult payment constructor
 Payment::Payment(){
 	sum_price = 0;
 	user_name = " ";
@@ -52,12 +54,12 @@ void Payment::getPaymentInfo(){
 	////
 }
 
-//default destructor 
+//default destructor
 Payment::~Payment(){
 }
 
 //Subclass of Payment: Card
-//default Card constructor 
+//default Card constructor
 Card::Card(){
 	exp_date = " ";
 	cvv = " ";
@@ -66,20 +68,20 @@ Card::Card(){
 	card_num = " ";
 }
 
-//asks and stores all the info related to card payment 
+//asks and stores all the info related to card payment
 void Card::setPaymentInfo(){
 
 	cout<<"\nYou have chosen the card payment method."<<endl;
 	cout<<"Please enter your card details to complete payment"<<endl;
 	cout<<"Cardholder Name: ";
 	cin.ignore();
-    getline(cin, card_name); 
+    getline(cin, card_name);
 	cout<<"\n";
 
 	cout<<"Card Number: ";
 	cin.ignore();
     getline(cin, card_num);
-    
+
     while((isNumber2(card_num))==false || (card_num.length()!=15)){
     	cout<<"\n"<<"Invalid card number. Card number must contain 16 digits."<<endl;
     	cout<<"Please enter the Card Number again: ";
@@ -90,7 +92,7 @@ void Card::setPaymentInfo(){
 
 	cout<<"Card Expiration Date in format (dd/mm/yyyy): ";
 	cin.ignore();
-    getline(cin, exp_date); 
+    getline(cin, exp_date);
     if(exp_date.length()!=9){
     	cout<<"Invalid input. Card expiration date must follow the dd/mm/yyyy format."<<endl;
 		cout<<"Please enter your card expiration date again: ";
@@ -110,19 +112,19 @@ void Card::setPaymentInfo(){
     		cout<<"\n"<<"Invalid cvv code. Cvv code must contain 3 digits."<<endl;
 	    	cout<<"Please enter your three digit cvv code again: ";
 			cin>>cvv;
-       } 
+       }
 	cout<<"\n";
 
-//storing the last four ending digits of the card number for displaying when 
-//needed for customer's reference 
-	
-	card_end_num[0] = card_num[11]; 
+//storing the last four ending digits of the card number for displaying when
+//needed for customer's reference
+
+	card_end_num[0] = card_num[11];
 	card_end_num[1] = card_num[12];
 	card_end_num[2] = card_num[13];
 	card_end_num[3] = card_num[14];
 }
 
-//only displaying the payment mmethod name and ending 4 digits of card 
+//only displaying the payment mmethod name and ending 4 digits of card
 //for customer's reference
 void Card::getPaymentInfo(){
  	cout<<"Paid with: Card ending in ";
@@ -130,7 +132,7 @@ void Card::getPaymentInfo(){
  	cout<<"\n";
 }
 
-//default destructor 
+//default destructor
 Card::~Card(){
 }
 
@@ -142,7 +144,7 @@ Cash::Cash(){
 	method_name = "Cash";
 }
 
-//asks and stores the amount of cash paid by user 
+//asks and stores the amount of cash paid by user
 void Cash::setAmountPaid(){
 	cout<<"Enter the amount of cash paid: ";
 	cin>>amount_paid;
@@ -197,15 +199,12 @@ void Cash::setPaymentInfo(){
 	cout<<"\n";
 
 	/*string amount_paid_str = " ";
-
 	cout<<"\nYou have chosen the cash payment option."<<endl;
 	cout<<"Enter the amount of cash paid: ";
 	cin>>amount_paid_str;
-
 	if(isNumber2(amount_paid_str) == true){
 		amount_paid = stod(amount_paid_str);
 	}
-
 	while(isNumber2(amount_paid_str) ==false || amount_paid<sum_price){
 		if(amount_paid<sum_price){
 			cout<<"\n"<<"Sorry the amount paid is insufficient"<<endl;
@@ -238,12 +237,12 @@ double Cash::getChange(){
 	return change;
 }
 
-//default destructor 
+//default destructor
 Cash::~Cash(){
 }
 
 //Subclass of Payment: LaterPay
-//deafault LaterPay Constructor 
+//deafault LaterPay Constructor
 LaterPay::LaterPay(){
 	installments_num = 0;
 	installments_num_str = " ";
@@ -255,7 +254,7 @@ LaterPay::LaterPay(){
 	method_name = "LaterPay";
 }
 
-//asks and stores all info related to LaterPay payment method 
+//asks and stores all info related to LaterPay payment method
 void LaterPay::setPaymentInfo(){
 	cout<<"\nYou have chosen the LaterPay payment option."<<endl;
 	cout<<"Please enter your card details and installment options to complete payment."<<endl;
@@ -277,7 +276,7 @@ void LaterPay::setPaymentInfo(){
 
 	cout<<"Card Expiration Date in format (dd/mm/yyyy): ";
 	cin.ignore();
-    getline(cin, exp_date); 
+    getline(cin, exp_date);
     if(exp_date.length()!=9){
     	cout<<"Invalid input. Card expiration date must follow the dd/mm/yyyy format."<<endl;
 		cout<<"Please enter your card expiration date again: ";
@@ -297,14 +296,14 @@ void LaterPay::setPaymentInfo(){
     		cout<<"\n"<<"Invalid cvv code. Cvv code must contain 3 digits."<<endl;
 	    	cout<<"Please enter your three digit cvv code again: ";
 			cin>>cvv;
-       } 
+       }
 	cout<<"\n";
 
 	cout<<"Enter the number of installments you wish to pay in (2, 3, or 4): ";
 	cin>>installments_num_str;
 	cout<<"\n";
 
-	while(isNumber2(installments_num_str)==false || (installments_num_str != "2" & installments_num_str != "3" & installments_num_str != "4")){
+	while((isNumber2(installments_num_str)==false) || ((installments_num_str != "2") && (installments_num_str != "3") && (installments_num_str != "4"))){
 		cout<<"\n"<<"Invalid input. You can only pay in installments of 2, 3 or 4."<<endl;
 		cout<<"Enter the number of installments you wish to pay in: ";
 	    cin>>installments_num_str;
@@ -321,7 +320,7 @@ void LaterPay::setPaymentInfo(){
 	}
 
 //storing the last 4 digits of card number
-	card_end_num[0] = card_num[11];  
+	card_end_num[0] = card_num[11];
 	card_end_num[1] = card_num[12];
 	card_end_num[2] = card_num[13];
 	card_end_num[3] = card_num[14];
@@ -345,9 +344,10 @@ double LaterPay::getPricePerInstallment(){
 	return price_per_installment;
 }
 
-//default destructor 
+//default destructor
 LaterPay::~LaterPay(){
 }
+
 
 
 
