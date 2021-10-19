@@ -6,6 +6,26 @@
 #include "ctype.h"
 using namespace std;
 
+bool isNumber2(string str){
+
+		for(int i=0;i<str.length();i++){
+			if(isdigit(str[i]) ==0){
+				return false;
+			}
+		}
+		return true;
+}
+
+bool isDouble(string str){
+
+		for(int i=0;i<str.length();i++){
+			if(isdigit(str[i]) == 0 & str[i] != '.'){
+				return false;
+			}
+		}
+		return true;
+}
+
 //deafult payment constructor 
 Payment::Payment(){
 	sum_price = 0;
@@ -60,7 +80,7 @@ void Card::setPaymentInfo(){
 	cin.ignore();
     getline(cin, card_num);
     
-    while(card_num.length()!=15){
+    while((isNumber2(card_num))==false || (card_num.length()!=15)){
     	cout<<"\n"<<"Invalid card number. Card number must contain 16 digits."<<endl;
     	cout<<"Please enter the Card Number again: ";
 		cin.ignore();
@@ -86,7 +106,7 @@ void Card::setPaymentInfo(){
 	cout<<"Three Digit CVV Code: ";
 	cin>>cvv;
 
-    	while(cvv.length()!=3){
+    	while((isNumber2(cvv))==false || (cvv.length()!=3)){
     		cout<<"\n"<<"Invalid cvv code. Cvv code must contain 3 digits."<<endl;
 	    	cout<<"Please enter your three digit cvv code again: ";
 			cin>>cvv;
@@ -118,7 +138,7 @@ Card::~Card(){
 //default Cash constructor
 Cash::Cash(){
 	change = 0;
-	amount_paid = 0;
+	amount_paid = 0.0;
 	method_name = "Cash";
 }
 
@@ -134,18 +154,77 @@ double Cash::getAmountPaid(){
 }
 
 void Cash::setPaymentInfo(){
+	string amount_paid_str = " ";
+
 	cout<<"\nYou have chosen the cash payment option."<<endl;
 	cout<<"Enter the amount of cash paid: ";
-	cin>>amount_paid;
+	cin>>amount_paid_str;
 
-	while(amount_paid<sum_price){
-		cout<<"\n"<<"Sorry the amount paid is insufficient"<<endl;
-		cout<<"Your cart total to be paid is: $"<<sum_price<<endl;
-		cout<<"Enter the amount of cash paid: ";
-		cin>>amount_paid;
-		cout<<"\n";
+	if(isDouble(amount_paid_str) == true){
+		amount_paid = stod(amount_paid_str);
 	}
+
+	while(isDouble(amount_paid_str) == false || amount_paid<sum_price){
+
+		if(isDouble(amount_paid_str) == false){
+			cout<<"\n"<<"Error! Invalid Input"<<endl;
+			cout<<"Your cart total to be paid is: $"<<sum_price<<endl;
+			cout<<"Enter the amount of cash paid: ";
+			cin>>amount_paid_str;
+
+			if(isDouble(amount_paid_str) == true){
+			amount_paid = stod(amount_paid_str);
+			}
+
+			cout<<"\n";
+		}
+
+		else{
+			cout<<"\n"<<"Sorry the amount paid is insufficient"<<endl;
+			cout<<"Your cart total to be paid is: $"<<sum_price<<endl;
+			cout<<"Enter the amount of cash paid: ";
+			cin>>amount_paid_str;
+
+			if(isDouble(amount_paid_str) == true){
+			amount_paid = stod(amount_paid_str);
+			}
+
+			cout<<"\n";
+		}
+	}
+
+	amount_paid = stod(amount_paid_str);
 	cout<<"\n";
+
+	/*string amount_paid_str = " ";
+
+	cout<<"\nYou have chosen the cash payment option."<<endl;
+	cout<<"Enter the amount of cash paid: ";
+	cin>>amount_paid_str;
+
+	if(isNumber2(amount_paid_str) == true){
+		amount_paid = stod(amount_paid_str);
+	}
+
+	while(isNumber2(amount_paid_str) ==false || amount_paid<sum_price){
+		if(amount_paid<sum_price){
+			cout<<"\n"<<"Sorry the amount paid is insufficient"<<endl;
+			cout<<"Your cart total to be paid is: $"<<sum_price<<endl;
+			cout<<"Enter the amount of cash paid: ";
+			cin>>amount_paid_str;
+			amount_paid = stod(amount_paid_str);
+			cout<<"\n";
+		}
+		else{
+			cout<<"\n"<<"Error! Invalid Input"<<endl;
+			cout<<"Your cart total to be paid is: $"<<sum_price<<endl;
+			cout<<"Enter the amount of cash paid: ";
+			cin>>amount_paid_str;
+			cout<<"\n";
+		}
+	}
+	amount_paid = stod(amount_paid_str);
+	cout<<"\n";*/
 }
 
 void Cash::getPaymentInfo(){
@@ -167,6 +246,7 @@ Cash::~Cash(){
 //deafault LaterPay Constructor 
 LaterPay::LaterPay(){
 	installments_num = 0;
+	installments_num_str = " ";
 	price_per_installment = 0.0;
 	exp_date = " ";
 	card_name = " ";
@@ -177,7 +257,6 @@ LaterPay::LaterPay(){
 
 //asks and stores all info related to LaterPay payment method 
 void LaterPay::setPaymentInfo(){
-	double installments_num_double;
 	cout<<"\nYou have chosen the LaterPay payment option."<<endl;
 	cout<<"Please enter your card details and installment options to complete payment."<<endl;
 	cout<<"Cardholder Name: ";
@@ -188,7 +267,7 @@ void LaterPay::setPaymentInfo(){
 	cout<<"Card Number: ";
 	cin.ignore();
     getline(cin, card_num);
-    while(card_num.length()!=15){
+    while((isNumber2(card_num))==false || (card_num.length()!=15)){
     	cout<<"\n"<<"Invalid card number. Card number must contain 16 digits."<<endl;
     	cout<<"Please enter the Card Number again: ";
 		cin.ignore();
@@ -214,7 +293,7 @@ void LaterPay::setPaymentInfo(){
 	cout<<"Three Digit CVV Code: ";
 	cin>>cvv;
 
-    	while(cvv.length()!=3){
+    	while((isNumber2(cvv))==false || (cvv.length()!=3)){
     		cout<<"\n"<<"Invalid cvv code. Cvv code must contain 3 digits."<<endl;
 	    	cout<<"Please enter your three digit cvv code again: ";
 			cin>>cvv;
@@ -222,15 +301,23 @@ void LaterPay::setPaymentInfo(){
 	cout<<"\n";
 
 	cout<<"Enter the number of installments you wish to pay in (2, 3, or 4): ";
-	cin>>installments_num_double;
-	installments_num = floor(installments_num_double);
+	cin>>installments_num_str;
 	cout<<"\n";
 
-	while(installments_num<2 || installments_num>4){
+	while(isNumber2(installments_num_str)==false || (installments_num_str != "2" & installments_num_str != "3" & installments_num_str != "4")){
 		cout<<"\n"<<"Invalid input. You can only pay in installments of 2, 3 or 4."<<endl;
 		cout<<"Enter the number of installments you wish to pay in: ";
-	    cin>>installments_num_double;
-	    installments_num = floor(installments_num_double);
+	    cin>>installments_num_str;
+	}
+
+	if(installments_num_str == "2"){
+		installments_num = 2;
+	}
+	if(installments_num_str == "3"){
+		installments_num = 3;
+	}
+	if(installments_num_str == "4"){
+		installments_num = 4;
 	}
 
 //storing the last 4 digits of card number
@@ -261,6 +348,7 @@ double LaterPay::getPricePerInstallment(){
 //default destructor 
 LaterPay::~LaterPay(){
 }
+
 
 
 
