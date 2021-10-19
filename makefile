@@ -19,7 +19,7 @@ test3: Payment.h Payment.cpp Cart.h Cart.cpp Product.h Product.cpp
 
 test2: Cart.h Cart.cpp Product.h Product.cpp
 	g++ -Wall CartTest.cpp Cart.cpp Product.cpp -o CartTest
-	./CartTest
+	./CartTest < CartTestInputs.txt | diff - CartTestOuput.txt
 
 
 test1: Product.h Product.cpp
