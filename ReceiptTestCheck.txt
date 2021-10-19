@@ -1,4 +1,11 @@
 
+You have chosen the card payment method.
+Please enter your card details to complete payment
+Cardholder Name:
+Card Number:
+Card Expiration Date in format (dd/mm/yyyy):
+Three Digit CVV Code:
+
 
 			Best Buy Grocery Store
 				 73 Rundle Mall
@@ -8,16 +15,17 @@
 			 ABN: 12 345 678 900
 			      TAX INVOICE
 
-Date/Time -- Sun Oct 17 12:25:48 2021
+Date/Time -- Tue Oct 19 14:30:54 2021
 
-1.  			0
-2.  			0
-3.  			0
-4.  			0
-5.  			0
 TOTAL AUD	     10.05
+
+Paid with: Card ending in 1234
+
+
 Exchange and refund will not be available.
-Thank you for shopping at Good Buy Grocery Store.
+Thank you for shopping at Best Buy Grocery Store.
+Enter your email address below:
+0
 Enter your email address below:
 0
 Enter your email address below:
