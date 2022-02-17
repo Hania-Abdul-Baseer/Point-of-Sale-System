@@ -7,7 +7,7 @@ The program runs on the command line.
 ### Utilized
 C++, makefile, Object-Oriented Programming, UML diagram, unit testing, and integration testing
 
-### Main Features: 
+### Main Features
 - Product listing and selection
 - Price calculation by item and weight
 - Display of cart with selected items and current total price
